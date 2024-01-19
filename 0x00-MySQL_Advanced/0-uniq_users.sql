@@ -1,8 +1,10 @@
--- creates a table user
+-- about creating table users
+CREATE DATABASE IF NOT EXISTS holberton;
+USE holberton;
 
---creates a table named user
-CREATE TABLE IF NOT EXISTS `users` (
-	id INT IDENTITY(1,1) PRIMARY KEY,
+-- creates a table users
+CREATE TABLE IF NOT EXISTS users (
+	id INT PRIMARY KEY AUTO_INCREMENT,
 	email VARCHAR(255) NOT NULL UNIQUE,
 	name VARCHAR(255)
-	)
+	);
