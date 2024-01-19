@@ -1,9 +1,8 @@
 -- creates a table user --
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'users')
-BEGIN
-	CREATE TABLE `users` (
-		id INT IDENTITY(1,1) PRIMARY KEY,
-		email VARCHAR(255) NOT NULL UNIQUE,
-		name VARCHAR(255)
+
+---creates a table named user ---
+CREATE TABLE IF NOT EXISTS `users` (
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	email VARCHAR(255) NOT NULL UNIQUE,
+	name VARCHAR(255)
 	);
-END;
