@@ -1,6 +1,6 @@
 -- about creating table users
-CREATE DATABASE IF NOT EXISTS holberton;
-USE holberton;
+-- CREATE DATABASE IF NOT EXISTS holberton;
+-- USE holberton;
 
 -- creates a table users
 CREATE TABLE IF NOT EXISTS users (
