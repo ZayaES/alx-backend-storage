@@ -1,0 +1,3 @@
+// script to create(if not exists) or use database
+
+use my_db
