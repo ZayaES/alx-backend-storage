@@ -23,7 +23,7 @@ class Cache:
         val = self._redis.get(key)
         if fn:
             val = fn(val)
-        return fn(val)
+        return (val)
 
     def get_str(self, key: str) -> str:
         """ paramtrize Cache.get to str"""
