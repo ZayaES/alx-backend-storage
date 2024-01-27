@@ -35,4 +35,5 @@ class Cache:
         try:
             return int(val.decode('utf-8'))
         except Exception:
-            value = 0
+            val = 0
+            return val
