@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Module testing redis functionality"""
 import redis
 from typing import Union, Callable, Optional
