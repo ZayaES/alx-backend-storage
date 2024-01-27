@@ -13,7 +13,7 @@ def call_history(method: Callable) -> Callable:
         """the actual wrapper"""
         input_key = method.__qualname__ + ":inputs"
         output_key = method.__qualname__ + ":outputs"
-        input_ = str(*args)
+        input_ = str(args)
         output = str(method(self, *args, **kwargs))
         self._redis.rpush(input_key, input_)
         self._redis.rpush(output_key, output)
