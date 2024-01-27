@@ -20,6 +20,7 @@ def call_history(method: Callable) -> Callable:
         return output
     return wrapper
 
+
 def count_calls(method: Callable) -> Callable:
     """a function decorator for counting
         no of times class is called"""
