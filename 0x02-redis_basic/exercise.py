@@ -6,6 +6,20 @@ from uuid import uuid4
 from functools import wraps
 
 
+def call_history(method: Callable) -> Callable:
+    """decorator for storing inputs and outputs"""
+    @wraps(method)
+    def wrapper(self, *args, **kwargs):
+        """the actual wrapper"""
+        input_key = method.__qualname__ + ":inputs"
+        output_key = method.__qualname__ + ":outputs"
+        input_ = str(*args)
+        output = str(method(self, *args, **kwargs))
+        self._redis.rpush(input_key, input_)
+        self._redis.rpush(output_key, output)
+        return output
+    return wrapper
+
 def count_calls(method: Callable) -> Callable:
     """a function decorator for counting
         no of times class is called"""
@@ -27,6 +41,7 @@ class Cache:
         self._redis.flushdb()
 
     @count_calls
+    @call_history
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """creates uuid4 key and stores the input data"""
         key = str(uuid4())
