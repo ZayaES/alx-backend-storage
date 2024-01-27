@@ -22,7 +22,8 @@ class Cache:
         """ gets the val of a key value pair act on it according to fn"""
         val = self._redis.get(key)
         if fn:
-            return fn(val)
+            val = fn(val)
+        return fn(val)
 
     def get_str(self, key: str) -> str:
         """ paramtrize Cache.get to str"""
