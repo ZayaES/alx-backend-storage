@@ -18,7 +18,7 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Callable) -> Union[str, bytes, float, int]:
+    def get(self, key: str, fn: Callable = None) -> Union[str, bytes, float, int]:
         """ gets the val of a key value pair act on it according to fn"""
         val = self._redis.get(key)
         if fn:
